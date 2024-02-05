@@ -1,0 +1,54 @@
+---
+import Hero from "@/components/Hero.astro";
+import Header from "@/components/Header.astro";
+import Layout from "@/layouts/Layout.astro";
+import Experience from "@/components/Experience.astro";
+import ContactCard from "@/components/DetailCard.astro";
+import SectionContainer from "@/components/Container.astro";
+import TitleSectionCard from "@/components/TitleSectionCard.astro";
+import Projects from "@/components/Projects.astro";
+import Sobremi from "@/components/Sobremi.astro";
+import CardContainer from "@/components/CardContainer.astro";
+import ExperiencieIcon from "@/components/icons/Experiencie.astro";
+import ProjectIcon from "@/components/icons/Project.astro";
+import SobremiIcon from "@/components/icons/AboutMe.astro";
+---
+
+<Layout title="Portafolio de Jose Flores">
+  <main>
+    <Hero />
+    <Header />
+    <SectionContainer>
+      <div class="md:grid md:grid-cols-10 gap-4 py-3">
+        <div
+          class="md:col-span-4 flex flex-col gap-3 md:sticky top-[68px] h-fit"
+        >
+          <ContactCard />
+        </div>
+        <div class="md:col-span-6 w-full">
+          <CardContainer id="experiencia">
+            <h3 class="text-xl font-bold flex gap-x-2 items-center">
+              <ExperiencieIcon class="size-6" />
+              <span>Experiencia</span>
+            </h3>
+          </CardContainer>
+          <Experience />
+          <CardContainer id="proyectos">
+            <h3 class="text-xl font-bold flex gap-x-2 items-center">
+              <ProjectIcon class="size-6" />
+              <span>Proyectos</span>
+            </h3>
+          </CardContainer>
+          <Projects />
+          <CardContainer id="sobremi">
+            <h3 class="text-xl font-bold flex gap-x-2 items-center">
+              <SobremiIcon class="size-6" />
+              <span>Sobre mí</span>
+            </h3>
+          </CardContainer>
+          <Sobremi />
+        </div>
+      </div>
+    </SectionContainer>
+  </main>
+</Layout>

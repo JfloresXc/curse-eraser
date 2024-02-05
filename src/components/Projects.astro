@@ -1,0 +1,122 @@
+---
+import TailwindIcon from "@/components/icons/Tailwind.astro";
+import ReactIcon from "@/components/icons/React.astro";
+import FirebaseIcon from "@/components/icons/Firebase.astro";
+import NextjsIcon from "@/components/icons/Nextjs.astro";
+import AstroIcon from "@/components/icons/AstroIcon.astro";
+import AngularIcon from "@/components/icons/Angular.astro";
+import ArrowDiagonalIcon from "@/components/icons/ArrowDiagonal.astro";
+import Github from "./icons/Github.astro";
+import CardContainer from "./CardContainer.astro";
+import HeaderArticle from "./HeaderArticle.astro";
+
+const TAGS = {
+  TAILWIND: {
+    name: "Tailwind",
+    class: "text-[#73bcf6] bg-[#003159]",
+    icon: TailwindIcon,
+  },
+  REACT: {
+    name: "React",
+    class: "text-white bg-[#0b57d0]",
+    icon: ReactIcon,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "text-white bg-[#1e88e5]",
+    icon: FirebaseIcon,
+  },
+  NEXTJS: {
+    name: "NextJS",
+    class: "text-white bg-blue-500",
+    icon: NextjsIcon,
+  },
+  ASTROJS: {
+    name: "Astro",
+    class: "bg-white text-black",
+    icon: AstroIcon,
+  },
+  ANGULARJS: {
+    name: "AngularJS",
+    class: "text-white bg-[#dd1b16] ",
+    icon: AngularIcon,
+  },
+};
+
+const PROJECTS = [
+  {
+    title: "Notesbook",
+    description:
+      "Aplicación web que guarda tus notas en la nube, para que puedas acceder a ellas desde cualquier dispositivo - Cuenta con un sistema de autenticación y un editor de texto personalizado",
+    image: "notebook-mockup.jpg",
+    linkSite: "https://notesbook.vercel.app/",
+    linkRepository: "https://github.com/JfloresXc/notesbook",
+    startDate: "abr. 2022",
+    endDate: "jul. 2022",
+    tags: [TAGS.REACT, TAGS.FIREBASE],
+  },
+  {
+    title: "Comedor Untels",
+    description:
+      "Aplicación web para el comedor de la Universidad Nacional Tecnológica de Lima Sur - Cuenta con un sistema de autenticación, un sistema de platillos y armado de menúes",
+    image: "comedoruntels-mockup.jpg",
+    linkSite: "https://comedoruntels.vercel.app/",
+    linkRepository: "https://github.com/JfloresXc/comedor-untels",
+    startDate: "abr. 2022",
+    endDate: "jul. 2022",
+    tags: [TAGS.ANGULARJS, TAGS.FIREBASE],
+  },
+  {
+    title: "Centro Idiomas",
+    description:
+      "Landing Page para un centro de idiomas, realizada de antemano por un diseño en Figma - Cuenta con un formulario de contacto y Lazy Loading para las imágenes - Basado en Design System",
+    image: "centroidiomas-mockup.jpg",
+    linkSite: "https://centro-idiomas.vercel.app/",
+    linkRepository: "https://github.com/JfloresXc/centro-idiomas",
+    startDate: "abr. 2022",
+    endDate: "jul. 2022",
+    tags: [TAGS.REACT],
+  },
+];
+---
+
+<section>
+  {
+    PROJECTS.map(
+      ({ startDate, endDate, title, description, tags, image }) => (
+        <CardContainer>
+          <article>
+            <HeaderArticle startDate={startDate} endDate={endDate} />
+            <div class="w-full border-l-4 pl-2 py-1">
+              <h4 class="text-xl font-semibold my-3">{title}</h4>
+              <p class=" border-gray-300 text-regular mb-3">
+                {description.split(" - ").map((topic) => (
+                  <span class="flex gap-x-1.5 mb-1.5">
+                    <span>✅</span>
+                    <span>{topic}.</span>
+                  </span>
+                ))}
+              </p>
+              <ul class="flex gap-x-1">
+                {tags.map((tag) => (
+                  <li class="mt-2 w-fit">
+                    <div class="flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium leading-5 text-primary gap-x-2">
+                      {tag.icon && <tag.icon class="h-4 w-4 mr-1" />}
+                      {tag.name}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <img
+              class="w-full h-60 object-cover rounded-lg mt-3"
+              src={`storage/projects/${image}`}
+              loading="lazy"
+              alt={title}
+            />
+          </article>
+        </CardContainer>
+      )
+    )
+  }
+</section>

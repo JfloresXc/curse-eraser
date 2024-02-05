@@ -1,0 +1,136 @@
+---
+import CardContainer from "./CardContainer.astro";
+import TailwindIcon from "@/components/icons/Tailwind.astro";
+import ReactIcon from "@/components/icons/React.astro";
+import FirebaseIcon from "@/components/icons/Firebase.astro";
+import NextjsIcon from "@/components/icons/Nextjs.astro";
+import AstroIcon from "@/components/icons/AstroIcon.astro";
+import AngularIcon from "@/components/icons/Angular.astro";
+import SqlServerIcon from "@/components/icons/SqlServer.astro";
+import PHPIcon from "@/components/icons/Php.astro";
+import CIcon from "@/components/icons/C.astro";
+import NodeIcon from "@/components/icons/Node.astro";
+import CheckOficial from "./icons/CheckOficial.astro";
+import Brand from "./Brand.astro";
+import WorldIcon from "./icons/World.astro";
+import HeaderArticle from "./HeaderArticle.astro";
+
+const TAGS = {
+  TAILWIND: {
+    name: "Tailwind",
+    class: "text-[#73bcf6] bg-[#003159]",
+    icon: TailwindIcon,
+  },
+  REACT: {
+    name: "React",
+    class: "text-white bg-[#0b57d0]",
+    icon: ReactIcon,
+  },
+  FIREBASE: {
+    name: "Firebase",
+    class: "text-white bg-[#1e88e5]",
+    icon: FirebaseIcon,
+  },
+  NEXTJS: {
+    name: "NextJS",
+    class: "text-white bg-blue-500",
+    icon: NextjsIcon,
+  },
+  ASTROJS: {
+    name: "Astro",
+    class: "bg-white text-black",
+    icon: AstroIcon,
+  },
+  ANGULARJS: {
+    name: "AngularJS",
+    class: "text-white bg-[#dd1b16] ",
+    icon: AngularIcon,
+  },
+  SQLSERVER: {
+    name: "SQLServer",
+    icon: SqlServerIcon,
+  },
+  PHPIcon: {
+    name: "PHP",
+    icon: PHPIcon,
+  },
+  CIcon: {
+    name: ".NET Framework",
+    icon: CIcon,
+  },
+  NodeIcon: {
+    name: "NodeJS",
+    icon: NodeIcon,
+  },
+};
+
+const EXPERIENCIAS = [
+  {
+    title: ".NET & Angular Stack Developer",
+    company: "Kipu",
+    linkCompany: "https://app.mikipu.com/",
+    location: "Remote",
+    startDate: "ago. 2022",
+    endDate: " ene. 2024",
+    description: `Desarrollé mejoras y correcciones en el sistema de Punto de Venta
+        para Restaurantes, Bares, Discotecas y Supermercados - Reprogramé envío de documentos electrónicos para su aceptación en la API de Sunat - Maneje un sistema de tickets para resolver problemas de clientes
+        de manera ágil y eficiente`,
+    tags: [TAGS.ANGULARJS, TAGS.CIcon, TAGS.SQLSERVER],
+  },
+  {
+    title: "MERN Stack Developer",
+    company: "Posperu",
+    linkCompany: "https://posperu.com/",
+    location: "Presential",
+    startDate: "abr. 2022",
+    endDate: "jul. 2022",
+    description: `Dirigí el desarrollo del proyecto Software de Administración de Proyectos con interfaz web - Integré la interfaz de la web utilizando la plantilla Vuexy - Gestioné la estructura de permisos y roles para los usuarios registrados - Administré la base de datos para su uso en la aplicación`,
+    tags: [TAGS.REACT, TAGS.NodeIcon, TAGS.SQLSERVER],
+  },
+  {
+    title: "Practicante PHP Developer",
+    company: "Posperu",
+    linkCompany: "https://posperu.com/",
+    location: "Presential",
+    startDate: "mar. 2022",
+    endDate: "abr. 2022",
+    description: `Participé en el área de desarrollo y soporte en el proyecto Desarrollo de Sistema Web de Gestión de Negocio Posperu - Interactué directamente con los clientes para resolver errores y/o mejorar alcances - Refactoricé y automaticé el código para mejorar la calidad y escalabilidad del sistema`,
+    tags: [TAGS.PHPIcon, TAGS.SQLSERVER],
+  },
+];
+---
+
+<section>
+  {
+    EXPERIENCIAS.map(
+      ({ startDate, endDate, title, description, tags }) => (
+        <CardContainer>
+          <article>
+            <HeaderArticle startDate={startDate} endDate={endDate} />
+            <div class="w-full border-l-4 pl-2 py-1">
+              <h4 class="text-xl font-semibold my-3">{title}</h4>
+              <p class=" border-gray-300 text-regular mb-3">
+                {description.split(" - ").map((topic) => (
+                  <span class="flex gap-x-1.5 mb-1.5">
+                    <span>✅</span>
+                    <span>{topic}.</span>
+                  </span>
+                ))}
+              </p>
+              <ul class="flex gap-x-1">
+                {tags.map((tag) => (
+                  <li class="mt-2 w-fit">
+                    <div class="flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium leading-5 text-primary gap-x-2">
+                      {tag.icon && <tag.icon class="h-4 w-4 mr-1" />}
+                      {tag.name}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        </CardContainer>
+      )
+    )
+  }
+</section>

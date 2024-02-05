@@ -1,0 +1,10 @@
+---
+const { size = "size-[40px]" } = Astro.props;
+---
+
+<img
+  src="storage/perfil.webp"
+  loading="lazy"
+  class={`rounded-full border-white border-4 ${size} ${Astro.props.class}`}
+  alt="Marca personal de Jose Flores Chamba -JfloresXc"
+/>

@@ -1,0 +1,34 @@
+<button
+  class="bg-primary text-white
+  text-sm md:text-regular px-2 py-1.5 rounded-md font-semibold
+  flex gap-x-2 justify-center items-center h-fit w-fit
+  hover:bg-primary/90"
+  id="button-pdf"
+>
+  <slot />
+</button>
+
+<div
+  class="flex justify-center items-center fixed inset-0 p-4 z-50 backdrop-filter transition-ease sr-only"
+  id="popup"
+>
+  <iframe
+    class="w-full h-full"
+    src="storage/CV-JOSE-FLORES-CHAMBA.pdf"
+    class="pdf"></iframe>
+</div>
+
+<script>
+  const button = document.getElementById("button-pdf");
+  const popup = document.querySelector("#popup");
+
+  button.addEventListener("click", () => {
+    popup.classList.remove("sr-only");
+  });
+
+  popup.addEventListener("click", (event) => {
+    if ((event?.target as HTMLElement)?.id == "popup") {
+      popup.classList.add("sr-only");
+    }
+  });
+</script>

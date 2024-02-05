@@ -1,0 +1,22 @@
+---
+import Brand from "./Brand.astro";
+import CheckOficial from "./icons/CheckOficial.astro";
+import WorldIcon from "./icons/World.astro";
+const personName = "Jose Flores";
+
+const { startDate = "", endDate = "" } = Astro.props;
+---
+
+<div class="flex gap-x-1 item-center">
+  <Brand size="size-[45px]" />
+  <div>
+    <h4 class="text-regular font-semibold flex gap-x-2">
+      {personName}{" "}
+      <CheckOficial class="text-primary size-3 mt-1.5" />
+    </h4>
+    <p class="text-gray-500 text-[13px] flex gap-x-2 items-center">
+      {startDate} - {endDate}
+      <WorldIcon class="size-3" />
+    </p>
+  </div>
+</div>

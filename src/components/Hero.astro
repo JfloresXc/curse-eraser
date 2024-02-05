@@ -1,0 +1,76 @@
+---
+import ButtonCV from "./ButtonCV.astro";
+import CVIcon from "@/components/icons/CV.astro";
+import LinkedinIcon from "@/components/icons/Linkedin.astro";
+import MailIcon from "@/components/icons/Mail.astro";
+import CheckOficialIcon from "@/components/icons/CheckOficial.astro";
+import ButtonLink from "./ButtonLink.astro";
+import SectionContainer from "./Container.astro";
+import Divider from "./Divider.astro";
+---
+
+<div class="bg-white" id="hero">
+  <div class="w-full max-w-4xl mx-auto">
+    <img
+      src="storage/joseponencia.webp"
+      class="w-full h-48 md:h-[280px] object-cover object-center md:rounded-b-md"
+    />
+  </div>
+  <SectionContainer>
+    <div
+      class="flex justify-between items-center md:items-end flex-col md:flex-row
+     h-full md:h-[90px]"
+    >
+      <div
+        class="flex flex-col md:flex-row gap-x-3 items-center md:items-end"
+      >
+        <img
+          src="storage/perfil.webp"
+          class="size-[150px] md:size-[170px] rounded-full border-white border-4 -mt-20 md:mt-0"
+        />
+        <div class="text-center md:text-start mb-5 md:mb-0">
+          <h1 class="flex items-end gap-x-3 mb-2">
+            <span class="text-2xl md:text-[32px] font-bold"
+              >Jose Flores</span
+            >
+            <CheckOficialIcon
+              class="size-5 text-primary mb-1 md:mb-1"
+            />
+          </h1>
+          <h2 class="text-regular text-secondary-100 font-bold">
+            Desarrollador Web
+          </h2>
+        </div>
+      </div>
+      <div
+        class="flex justify-center md:justify-normal flex-wrap gap-2"
+      >
+        <ButtonCV>
+          <CVIcon class="size-5" />
+          <span>CV</span>
+        </ButtonCV>
+        <ButtonLink href="https://www.linkedin.com/in/jfloresxc/">
+          <LinkedinIcon class="size-4" />
+          <span class="">Linkedin</span>
+        </ButtonLink>
+        <ButtonLink href="mailto:jflorexc@gmail.com">
+          <MailIcon class="size-4" />
+          <span>jfloresxc@gmail.com</span>
+        </ButtonLink>
+      </div>
+    </div>
+    <Divider />
+  </SectionContainer>
+</div>
+
+<style>
+  #hero {
+    background: rgb(0, 0, 0);
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(61, 61, 61, 1) 0%,
+      rgba(255, 255, 255, 1) 62%
+    );
+  }
+</style>

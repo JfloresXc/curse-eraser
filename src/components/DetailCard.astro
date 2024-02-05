@@ -1,0 +1,35 @@
+---
+import CardContainer from "./CardContainer.astro";
+import Divider from "./Divider.astro";
+import Available from "./icons/Available.astro";
+import GithubIcon from "./icons/Github.astro";
+---
+
+<CardContainer>
+  <h3 class="text-xl font-bold mb-3">Detalles</h3>
+  <p class="text-regular text-center">
+    +2 años de experiencia. Ingeniero de Sistemas. Especializado en
+    crear aplicaciones únicas. ✨
+  </p>
+  <Divider class="mt-5 mb-6" />
+  <ul class="flex flex-col gap-4">
+    <a
+      class="flex gap-x-3 text-primary hover:text-primary/80 transition ease-in-out duration-200"
+      href="https://www.linkedin.com/in/jfloresxc/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <Available class="size-6" />
+      <span class="text-regular">Disponible para trabajar</span>
+    </a>
+    <a
+      class="flex gap-x-3 text-gray-800 font-semibold hover:text-gray-600"
+      href="https://github.com/JfloresXc"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <GithubIcon class="size-5" />
+      <span class="text-regular">Github</span>
+    </a>
+  </ul>
+</CardContainer>

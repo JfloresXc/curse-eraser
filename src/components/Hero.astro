@@ -7,9 +7,10 @@ import CheckOficialIcon from "@/components/icons/CheckOficial.astro";
 import ButtonLink from "./ButtonLink.astro";
 import SectionContainer from "./Container.astro";
 import Divider from "./Divider.astro";
+import Brand from "./Brand.astro";
 ---
 
-<div class="bg-white" id="hero">
+<div class="bg-white dark:bg-slate-800" id="hero">
   <div class="w-full max-w-4xl mx-auto">
     <img
       src="storage/joseponencia.webp"
@@ -24,9 +25,13 @@ import Divider from "./Divider.astro";
       <div
         class="flex flex-col md:flex-row gap-x-3 items-center md:items-end"
       >
-        <img
+        <!-- <img
           src="storage/perfil.webp"
           class="size-[150px] md:size-[170px] rounded-full border-white border-4 -mt-20 md:mt-0"
+        /> -->
+        <Brand
+          class="size-[150px] md:size-[170px] border-4 -mt-20 md:mt-0"
+          size="170px"
         />
         <div class="text-center md:text-start mb-5 md:mb-0">
           <h1 class="flex items-end gap-x-3 mb-2">
@@ -37,7 +42,9 @@ import Divider from "./Divider.astro";
               class="size-5 text-primary mb-1 md:mb-1"
             />
           </h1>
-          <h2 class="text-regular text-secondary-100 font-bold">
+          <h2
+            class="text-regular text-secondary-100 dark:text-slate-300 font-bold"
+          >
             Desarrollador Web
           </h2>
         </div>
@@ -51,7 +58,7 @@ import Divider from "./Divider.astro";
         </ButtonCV>
         <ButtonLink href="https://www.linkedin.com/in/jfloresxc/">
           <LinkedinIcon class="size-4" />
-          <span class="">Linkedin</span>
+          <span>Linkedin</span>
         </ButtonLink>
         <ButtonLink href="mailto:jflorexc@gmail.com">
           <MailIcon class="size-4" />
@@ -72,5 +79,9 @@ import Divider from "./Divider.astro";
       rgba(61, 61, 61, 1) 0%,
       rgba(255, 255, 255, 1) 62%
     );
+  }
+
+  body.dark #hero {
+    background: #1e293b;
   }
 </style>

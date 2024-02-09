@@ -1,5 +1,6 @@
 const colors = require("tailwindcss/colors");
 const fontsize = require("tailwindcss/defaultTheme").fontSize;
+import svelte from "@astrojs/svelte";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -23,6 +24,5 @@ export default {
       ...fontsize,
     },
   },
-  plugins: [],
   darkMode: "class",
 };

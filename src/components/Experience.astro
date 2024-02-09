@@ -10,10 +10,8 @@ import SqlServerIcon from "@/components/icons/SqlServer.astro";
 import PHPIcon from "@/components/icons/Php.astro";
 import CIcon from "@/components/icons/C.astro";
 import NodeIcon from "@/components/icons/Node.astro";
-import CheckOficial from "./icons/CheckOficial.astro";
-import Brand from "./Brand.astro";
-import WorldIcon from "./icons/World.astro";
 import HeaderArticle from "./HeaderArticle.astro";
+import Tags from "./Tags.astro";
 
 const TAGS = {
   TAILWIND: {
@@ -117,16 +115,7 @@ const EXPERIENCIAS = [
                   </span>
                 ))}
               </p>
-              <ul class="flex gap-x-1">
-                {tags.map((tag) => (
-                  <li class="mt-2 w-fit">
-                    <div class="flex items-center rounded-full bg-primary/10 px-3 py-1 text-xs font-medium leading-5 text-primary gap-x-2">
-                      {tag.icon && <tag.icon class="h-4 w-4 mr-1" />}
-                      {tag.name}
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <Tags tags={tags} />
             </div>
           </article>
         </CardContainer>

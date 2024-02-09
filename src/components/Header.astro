@@ -1,7 +1,9 @@
 ---
 import Brand from "./Brand.astro";
-import ButtonDarkMode from "./ButtonDarkMode.astro";
 import Dropdown from "./Dropdown.astro";
+import ButtonDarkMode from "./ButtonDarkMode";
+import Container from "./Container.astro";
+// import ButtonDarkMode from "@/components/ButtonDarkMode.svelte";
 
 const LINKS = [
   {
@@ -19,63 +21,69 @@ const LINKS = [
 ];
 ---
 
-<header id="header" class="bg-white sticky top-0 z-50">
-  <div
-    id="navbar"
-    class="flex justify-between items-center pt-1 max-w-4xl w-full mx-auto px-3 md:px-10"
-  >
-    <ul class="flex">
-      {
-        LINKS.map(({ name, url }) => (
-          <a
-            class="p-2.5 md:p-4 flex justify-center items-center 
-              font-semibold text-sm md:text[15px] text-secondary-100 hover:text-primary
-              border-b-[3px] border-transparent hover:border-b-primary
-            hover:bg-secondary-200 rounded-md
-              "
-            href={url}
-          >
-            {name}
-          </a>
-        ))
-      }
-    </ul>
-    <!-- <ButtonDarkMode /> -->
-  </div>
-  <div
-    class="max-w-4xl mx-auto px-3 md:px-10 w-full flex justify-between items-center py-2"
-    id="navbar-sticky"
-  >
-    <div class="hidden md:flex gap-x-3 justify-center items-center">
-      <Brand />
-      <div>
-        <h1 class="flex items-end gap-x-3">
-          <span class="text-xl font-bold text-nowrap"
-            >Jose Flores</span
-          >
-        </h1>
+<header
+  id="header"
+  class="bg-white dark:bg-slate-800
+  sticky top-0 z-50"
+>
+  <Container class="flex justify-between items-center">
+    <div
+      id="section-non-sticky"
+      class="flex justify-between items-center pt-1"
+    >
+      <ul class="flex">
+        {
+          LINKS.map(({ name, url }) => (
+            <a
+              class="p-2.5 md:p-4 flex justify-center items-center 
+                font-semibold text-sm md:text[15px] text-slate-700 dark:text-white
+                border-b-[3px] border-transparent hover:border-b-teal-400
+              hover:bg-secondary-200 dark:hover:bg-slate-700 rounded-md
+                "
+              href={url}
+            >
+              {name}
+            </a>
+          ))
+        }
+      </ul>
+    </div>
+    <div
+      class="flex justify-between w-full items-center py-2 pr-2"
+      id="section-sticky"
+    >
+      <div class="hidden md:flex gap-x-3 justify-center items-center">
+        <Brand />
+        <div>
+          <h1 class="flex items-end gap-x-3">
+            <span class="text-xl font-bold text-nowrap"
+              >Jose Flores</span
+            >
+          </h1>
+        </div>
+      </div>
+      <div class="flex gap-x-5 items-center w-full md:w-fit">
+        <Dropdown />
       </div>
     </div>
-    <div class="flex gap-x-5 items-center w-full md:w-fit">
-      <!-- <h4 class="font-semibold mr-auto md:mr-0">Experiencia</h4> -->
-      <Dropdown />
-      <!-- <ButtonDarkMode /> -->
-    </div>
-  </div>
+    <ButtonDarkMode client:only="react" />
+  </Container>
 </header>
 
 <script>
   const header = document.querySelector("#header");
-  const navbar = document.querySelector("#navbar");
-  const navbarSticky = document.querySelector("#navbar-sticky");
+  const navbar = document.querySelector("#section-non-sticky");
+  const navbarSticky = document.querySelector("#section-sticky");
 
   const callback = (entrada, observador) => {
     const elementHeader = entrada[0];
     if (elementHeader.isIntersecting) {
       navbar.classList.add("sr-only");
+
       navbarSticky.classList.remove("sr-only");
     } else {
       navbar.classList.remove("sr-only");
+
       navbarSticky.classList.add("sr-only");
     }
   };

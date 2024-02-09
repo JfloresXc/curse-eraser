@@ -5,6 +5,10 @@ const { size = "size-[40px]" } = Astro.props;
 <img
   src="storage/perfil.webp"
   loading="lazy"
-  class={`rounded-full border-white border-4 ${size} ${Astro.props.class}`}
+  class={`
+    rounded-full border-white dark:border-slate-800 
+    bg-white dark:bg-slate-800
+    ${size} ${Astro.props.class}
+  `}
   alt="Marca personal de Jose Flores Chamba -JfloresXc"
 />

@@ -16,7 +16,7 @@ const LINKS = [
 ];
 ---
 
-<div class="relative">
+<div class={Astro.props.class}>
   <button
     id="dropdownDefaultButton"
     data-dropdown-toggle="dropdown"
@@ -31,7 +31,7 @@ const LINKS = [
 
   <div
     id="dropdown"
-    class="z-10 absolute mt-3 bg-white divide-y divide-gray-100 rounded-lg shadow-2xl w-44 dark:bg-gray-700"
+    class="hidden z-10 absolute mt-3 bg-white divide-y divide-gray-100 rounded-lg shadow-2xl w-44 dark:bg-gray-700"
   >
     <ul
       class="py-2 text-sm text-gray-700 dark:text-gray-200"

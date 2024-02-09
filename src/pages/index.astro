@@ -5,7 +5,6 @@ import Layout from "@/layouts/Layout.astro";
 import Experience from "@/components/Experience.astro";
 import ContactCard from "@/components/DetailCard.astro";
 import SectionContainer from "@/components/Container.astro";
-import TitleSectionCard from "@/components/TitleSectionCard.astro";
 import Projects from "@/components/Projects.astro";
 import Sobremi from "@/components/Sobremi.astro";
 import CardContainer from "@/components/CardContainer.astro";
@@ -21,26 +20,26 @@ import SobremiIcon from "@/components/icons/AboutMe.astro";
     <SectionContainer>
       <div class="md:grid md:grid-cols-10 gap-4 py-3">
         <div
-          class="md:col-span-4 flex flex-col gap-3 md:sticky top-[68px] h-fit"
+          class="md:col-span-4 flex flex-col gap-3 md:sticky top-[64px] h-fit"
         >
           <ContactCard />
         </div>
         <div class="md:col-span-6 w-full">
-          <CardContainer id="experiencia">
+          <CardContainer id="experiencia" class="py-3">
             <h3 class="text-xl font-bold flex gap-x-2 items-center">
+              <span class="">Experiencia</span>
               <ExperiencieIcon class="size-6" />
-              <span>Experiencia</span>
             </h3>
           </CardContainer>
           <Experience />
-          <CardContainer id="proyectos">
+          <CardContainer id="proyectos" class="py-3">
             <h3 class="text-xl font-bold flex gap-x-2 items-center">
               <ProjectIcon class="size-6" />
               <span>Proyectos</span>
             </h3>
           </CardContainer>
           <Projects />
-          <CardContainer id="sobremi">
+          <CardContainer id="sobremi" class="py-3">
             <h3 class="text-xl font-bold flex gap-x-2 items-center">
               <SobremiIcon class="size-6" />
               <span>Sobre mí</span>

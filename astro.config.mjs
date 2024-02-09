@@ -8,5 +8,4 @@ import react from "@astrojs/react";
 export default defineConfig({
   integrations: [tailwind(), svelte(), react()],
   site: "https://jfloresxc.github.io",
-  base: "/",
 });

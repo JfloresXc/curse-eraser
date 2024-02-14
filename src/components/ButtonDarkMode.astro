@@ -1,0 +1,47 @@
+---
+import MoonIcon from "./icons/Moon.astro";
+import SunIcon from "./icons/Sun.astro";
+---
+
+<button
+  class="button-dark-mode h-fit text-white px-4 py-2 rounded-md text-nowrap hover:bg-slate-200 dark:hover:bg-slate-700"
+>
+  <SunIcon class="sr-only sun-icon size-6" />
+
+  <MoonIcon class="sr-only moon-icon size-5" />
+</button>
+
+<script>
+  const button = document.querySelector(".button-dark-mode");
+  const body = document.querySelector("body");
+  const moonIcon = document.querySelector(".moon-icon");
+  const sunIcon = document.querySelector(".sun-icon");
+
+  function setTheme(isDark) {
+    if (isDark) {
+      body.classList.add("dark");
+      sunIcon.classList.remove("sr-only");
+      moonIcon.classList.add("sr-only");
+    } else {
+      body.classList.remove("dark");
+      moonIcon.classList.remove("sr-only");
+      sunIcon.classList.add("sr-only");
+    }
+  }
+
+  const isDark = window.localStorage.getItem("theme") === "dark";
+  setTheme(isDark);
+
+  button.addEventListener("click", () => {
+    const html = document.querySelector("body");
+    const isDark = window.localStorage.getItem("theme") === "dark";
+
+    if (isDark) {
+      window.localStorage.setItem("theme", "light");
+    } else {
+      window.localStorage.setItem("theme", "dark");
+    }
+
+    setTheme(!isDark);
+  });
+</script>
